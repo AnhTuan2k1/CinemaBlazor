@@ -165,7 +165,16 @@ values (N'BLACK ADAM',N'Black Adam được các fan truyện tranh biết đế
            ,'1','125','20/10/2022','https://cdn.galaxycine.vn/media/2022/9/26/900wx1350h_1664177555434.jpg'
 		   ,'https://www.youtube.com/watch?v=XBH5bmXOyUc&ab_channel=GalaxyCinema%28Official%29'
 		   ,N'MỸ','Jaume Collet-Serra','Dwayne Johnson, Pierce Brosnan, Sarah Shahi')
-
+insert into Film(Name, Content, FilmGenreID, Length, OpenningDay, ImageUrl, TrailerUrl, Nation, Directior, Cast)
+values (N'Confidential Assignment 2: International',N'Đặc vụ Tiên Lim Cheol-ryung (Hyun Bin) trở lại Hàn Quốc để đánh Triều một tổ chức phạm tội. Cùng lúc đó, Kang Jin-tae (Yoo Hae Jin) ở Đơn vị phạm tội mạng đang khao khát trở lại đơn vị cũ, thì được trao cho một nhiệm vụ đặc biệt với Cheol-ryung. Min-young (Lim YoonA) cũng có cơ hội tiếp tục câu chuyện tình yêu “phát cuồng” dành cho Cheol-ryung. Jin-tae và Cheol-ryung cùng làm việc dù vẫn còn nhiều nghi ngờ về động cơ của đối phương. Ngay khi bộ đôi chuẩn bị kích hoạt ẩn náu của Jang Myung-jun (Jin Sun Kyu), thủ lĩnh của tổ chức phạm tội, đặc vụ FBI Jack (Daniel Henney) xông vào. This new prefixed to the Traversation thành một cuộc điều tra quốc tế giữa 3 quốc gia, hẹn ước nhiều tình tiết kịch tính và toàn bộ bất ngờ.'
+           ,'1','129','27/10/2022','https://cdn.galaxycine.vn/media/2022/10/12/1200wx1800h_1665592993771.jpg'
+		   ,'https://www.youtube.com/watch?v=t0ixlAp4BSU&feature=emb_title'
+		   ,N'Hàn Quốc','Lee Seok Hoon','Hyun Bin, Lim Yoona, Daniel Henney, Yoo Hae Jin')
+		   insert into Film(Name, Content, FilmGenreID, Length, OpenningDay, ImageUrl, TrailerUrl, Nation, Directior, Cast)
+values (N'Lyle, Chú Cá Sấu Biết Hát',N'Khi gia đình Primm chuyển đến thành phố New York, cậu con trai nhỏ Josh gặp khó khăn trong việc thích nghi với ngôi trường và những người bạn mới. Mọi thứ thay đổi khi cậu bé phát hiện ra ra Lyle - một chàng cá sấu mê tắm rửa, trứng cá muối và âm nhạc sống trên gác mái của của mình. Hai người nhanh chóng trở thành bạn bè. Thế nhưng, khi cuộc sống của Lyle bị ông hàng xóm Grumps đe dọa, gia đình Primm buộc phải kết hợp với ông chủ cũ của Lyle là Hector P. Valenti (Javier Bardem) để cho cả thế giới thấy giá trị tình thân và sự kỳ diệu của một chàng cá sấu biết hát. '
+           ,'1','104','4/11/2022','https://cdn.galaxycine.vn/media/2022/11/1/1200x1800_1667275197172.jpg'
+		   ,'https://www.youtube.com/watch?v=J14BfxOUxIs&feature=emb_title'
+		   ,N'MỸ','Will Speck, Josh Gordon','Shawn Mendes, Javier Bardem, Winslow Fegley')
 
 insert into ProjectionRoom(Name, ScreenType, CinemaID) values(N'Cinema 1','2D','1')
 insert into ProjectionRoom(Name, ScreenType, CinemaID) values(N'Cinema 2','2D','1')
