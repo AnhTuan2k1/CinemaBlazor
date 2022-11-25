@@ -9,6 +9,8 @@ namespace CinemaBlazor.Shared.Models
         {
             Comments = new HashSet<Comment>();
             Invoices = new HashSet<Invoice>();
+            LikeActors = new HashSet<LikeActor>();
+            LikeDirectors = new HashSet<LikeDirector>();
             Rates = new HashSet<Rate>();
             Tickets = new HashSet<Ticket>();
         }
@@ -24,6 +26,8 @@ namespace CinemaBlazor.Shared.Models
         public virtual Account Account { get; set; } = null!;
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<LikeActor> LikeActors { get; set; }
+        public virtual ICollection<LikeDirector> LikeDirectors { get; set; }
         public virtual ICollection<Rate> Rates { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }

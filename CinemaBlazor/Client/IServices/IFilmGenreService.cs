@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CinemaBlazor.Client.Services
+namespace CinemaBlazor.Client.IServices
 {
     public interface IFilmGenreService
     {

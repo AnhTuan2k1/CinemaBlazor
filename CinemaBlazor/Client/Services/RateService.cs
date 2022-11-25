@@ -1,4 +1,5 @@
-﻿using CinemaBlazor.Shared.Models;
+﻿using CinemaBlazor.Client.IServices;
+using CinemaBlazor.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -15,6 +15,7 @@ namespace CinemaBlazor.Shared.Models
         public string? Name { get; set; }
         public string? Location { get; set; }
         public string? ImageUrl { get; set; }
+        public string? ImageUrl2 { get; set; }
 
         public virtual ICollection<ProjectionRoom> ProjectionRooms { get; set; }
         public virtual ICollection<ShowTime> ShowTimes { get; set; }

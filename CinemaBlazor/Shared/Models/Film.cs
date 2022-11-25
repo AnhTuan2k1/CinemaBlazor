@@ -8,6 +8,8 @@ namespace CinemaBlazor.Shared.Models
         public Film()
         {
             Comments = new HashSet<Comment>();
+            FilmActors = new HashSet<FilmActor>();
+            FilmDirectors = new HashSet<FilmDirector>();
             Rates = new HashSet<Rate>();
             ShowTimes = new HashSet<ShowTime>();
         }
@@ -26,6 +28,8 @@ namespace CinemaBlazor.Shared.Models
 
         public virtual FilmGenre FilmGenre { get; set; } = null!;
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<FilmActor> FilmActors { get; set; }
+        public virtual ICollection<FilmDirector> FilmDirectors { get; set; }
         public virtual ICollection<Rate> Rates { get; set; }
         public virtual ICollection<ShowTime> ShowTimes { get; set; }
     }

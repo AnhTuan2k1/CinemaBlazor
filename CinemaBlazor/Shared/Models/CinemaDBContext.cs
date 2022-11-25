@@ -17,15 +17,23 @@ namespace CinemaBlazor.Shared.Models
         }
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
+        public virtual DbSet<Actor> Actors { get; set; } = null!;
+        public virtual DbSet<Blog> Blogs { get; set; } = null!;
         public virtual DbSet<Cinema> Cinemas { get; set; } = null!;
         public virtual DbSet<Comment> Comments { get; set; } = null!;
         public virtual DbSet<Customer> Customers { get; set; } = null!;
+        public virtual DbSet<Director> Directors { get; set; } = null!;
         public virtual DbSet<Employee> Employees { get; set; } = null!;
         public virtual DbSet<Film> Films { get; set; } = null!;
+        public virtual DbSet<FilmActor> FilmActors { get; set; } = null!;
+        public virtual DbSet<FilmDirector> FilmDirectors { get; set; } = null!;
         public virtual DbSet<FilmGenre> FilmGenres { get; set; } = null!;
         public virtual DbSet<Invoice> Invoices { get; set; } = null!;
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; } = null!;
+        public virtual DbSet<LikeActor> LikeActors { get; set; } = null!;
+        public virtual DbSet<LikeDirector> LikeDirectors { get; set; } = null!;
         public virtual DbSet<ProjectionRoom> ProjectionRooms { get; set; } = null!;
+        public virtual DbSet<Promotion> Promotions { get; set; } = null!;
         public virtual DbSet<Rate> Rates { get; set; } = null!;
         public virtual DbSet<ShowTime> ShowTimes { get; set; } = null!;
         public virtual DbSet<Ticket> Tickets { get; set; } = null!;
@@ -34,7 +42,7 @@ namespace CinemaBlazor.Shared.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-///#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=(local);Database=CinemaDB;Trusted_Connection=True;");
             }
         }
@@ -56,6 +64,50 @@ namespace CinemaBlazor.Shared.Models
                 entity.Property(e => e.Username).HasMaxLength(50);
             });
 
+            modelBuilder.Entity<Actor>(entity =>
+            {
+                entity.ToTable("Actor");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.AvatarUrl).HasMaxLength(500);
+
+                entity.Property(e => e.Bio).HasMaxLength(4000);
+
+                entity.Property(e => e.Birthday).HasColumnType("datetime");
+
+                entity.Property(e => e.Description).HasMaxLength(4000);
+
+                entity.Property(e => e.Name).HasMaxLength(60);
+
+                entity.Property(e => e.Nationality).HasMaxLength(70);
+            });
+
+            modelBuilder.Entity<Blog>(entity =>
+            {
+                entity.ToTable("Blog");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Content1).HasMaxLength(4000);
+
+                entity.Property(e => e.Content2).HasMaxLength(4000);
+
+                entity.Property(e => e.Content3).HasMaxLength(4000);
+
+                entity.Property(e => e.Description).HasMaxLength(4000);
+
+                entity.Property(e => e.ImageUrl).HasMaxLength(500);
+
+                entity.Property(e => e.ImageUrl1).HasMaxLength(500);
+
+                entity.Property(e => e.ImageUrl2).HasMaxLength(500);
+
+                entity.Property(e => e.ImageUrl3).HasMaxLength(500);
+
+                entity.Property(e => e.Name).HasMaxLength(60);
+            });
+
             modelBuilder.Entity<Cinema>(entity =>
             {
                 entity.ToTable("Cinema");
@@ -63,6 +115,8 @@ namespace CinemaBlazor.Shared.Models
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.ImageUrl).HasMaxLength(500);
+
+                entity.Property(e => e.ImageUrl2).HasMaxLength(500);
 
                 entity.Property(e => e.Location).HasMaxLength(200);
 
@@ -75,7 +129,7 @@ namespace CinemaBlazor.Shared.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Content).HasMaxLength(500);
+                entity.Property(e => e.Content).HasMaxLength(4000);
 
                 entity.Property(e => e.FilmId).HasColumnName("FilmID");
 
@@ -83,13 +137,13 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.Customer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Comment__Custome__412EB0B6");
+                    .HasConstraintName("FK__Comment__Custome__5070F446");
 
                 entity.HasOne(d => d.Film)
                     .WithMany(p => p.Comments)
                     .HasForeignKey(d => d.FilmId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Comment__FilmID__403A8C7D");
+                    .HasConstraintName("FK__Comment__FilmID__4F7CD00D");
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -115,6 +169,25 @@ namespace CinemaBlazor.Shared.Models
                     .HasForeignKey(d => d.AccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Customer__Accoun__29572725");
+            });
+
+            modelBuilder.Entity<Director>(entity =>
+            {
+                entity.ToTable("Director");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.AvatarUrl).HasMaxLength(500);
+
+                entity.Property(e => e.Bio).HasMaxLength(4000);
+
+                entity.Property(e => e.Birthday).HasColumnType("datetime");
+
+                entity.Property(e => e.Description).HasMaxLength(4000);
+
+                entity.Property(e => e.Name).HasMaxLength(60);
+
+                entity.Property(e => e.Nationality).HasMaxLength(70);
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -174,7 +247,51 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.Films)
                     .HasForeignKey(d => d.FilmGenreId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Film__FilmGenreI__31EC6D26");
+                    .HasConstraintName("FK__Film__FilmGenreI__398D8EEE");
+            });
+
+            modelBuilder.Entity<FilmActor>(entity =>
+            {
+                entity.ToTable("FilmActor");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.FilmId).HasColumnName("FilmID");
+
+                entity.HasOne(d => d.ActorNavigation)
+                    .WithMany(p => p.FilmActors)
+                    .HasForeignKey(d => d.Actor)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmActor__Actor__412EB0B6");
+
+                entity.HasOne(d => d.Film)
+                    .WithMany(p => p.FilmActors)
+                    .HasForeignKey(d => d.FilmId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmActor__FilmI__403A8C7D");
+            });
+
+            modelBuilder.Entity<FilmDirector>(entity =>
+            {
+                entity.ToTable("FilmDirector");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.DirectorId).HasColumnName("DirectorID");
+
+                entity.Property(e => e.FilmId).HasColumnName("FilmID");
+
+                entity.HasOne(d => d.Director)
+                    .WithMany(p => p.FilmDirectors)
+                    .HasForeignKey(d => d.DirectorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmDirec__Direc__3D5E1FD2");
+
+                entity.HasOne(d => d.Film)
+                    .WithMany(p => p.FilmDirectors)
+                    .HasForeignKey(d => d.FilmId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__FilmDirec__FilmI__3C69FB99");
             });
 
             modelBuilder.Entity<FilmGenre>(entity =>
@@ -200,13 +317,13 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.Invoices)
                     .HasForeignKey(d => d.Customer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Invoice__Custome__4AB81AF0");
+                    .HasConstraintName("FK__Invoice__Custome__619B8048");
 
                 entity.HasOne(d => d.EmployeeNavigation)
                     .WithMany(p => p.Invoices)
                     .HasForeignKey(d => d.Employee)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Invoice__Employe__4BAC3F29");
+                    .HasConstraintName("FK__Invoice__Employe__628FA481");
             });
 
             modelBuilder.Entity<InvoiceDetail>(entity =>
@@ -223,13 +340,55 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany()
                     .HasForeignKey(d => d.InvoiceId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__InvoiceDe__Invoi__4D94879B");
+                    .HasConstraintName("FK__InvoiceDe__Invoi__6477ECF3");
 
                 entity.HasOne(d => d.Ticket)
                     .WithMany()
                     .HasForeignKey(d => d.TicketId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__InvoiceDe__Ticke__4E88ABD4");
+                    .HasConstraintName("FK__InvoiceDe__Ticke__656C112C");
+            });
+
+            modelBuilder.Entity<LikeActor>(entity =>
+            {
+                entity.ToTable("LikeActor");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ActorId).HasColumnName("ActorID");
+
+                entity.HasOne(d => d.Actor)
+                    .WithMany(p => p.LikeActors)
+                    .HasForeignKey(d => d.ActorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LikeActor__Actor__534D60F1");
+
+                entity.HasOne(d => d.CustomerNavigation)
+                    .WithMany(p => p.LikeActors)
+                    .HasForeignKey(d => d.Customer)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LikeActor__Custo__5441852A");
+            });
+
+            modelBuilder.Entity<LikeDirector>(entity =>
+            {
+                entity.ToTable("LikeDirector");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.DirectorId).HasColumnName("DirectorID");
+
+                entity.HasOne(d => d.CustomerNavigation)
+                    .WithMany(p => p.LikeDirectors)
+                    .HasForeignKey(d => d.Customer)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LikeDirec__Custo__5812160E");
+
+                entity.HasOne(d => d.Director)
+                    .WithMany(p => p.LikeDirectors)
+                    .HasForeignKey(d => d.DirectorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__LikeDirec__Direc__571DF1D5");
             });
 
             modelBuilder.Entity<ProjectionRoom>(entity =>
@@ -248,7 +407,24 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.ProjectionRooms)
                     .HasForeignKey(d => d.CinemaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Projectio__Cinem__34C8D9D1");
+                    .HasConstraintName("FK__Projectio__Cinem__440B1D61");
+            });
+
+            modelBuilder.Entity<Promotion>(entity =>
+            {
+                entity.ToTable("Promotion");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Content).HasMaxLength(4000);
+
+                entity.Property(e => e.Description).HasMaxLength(4000);
+
+                entity.Property(e => e.ImageUrl).HasMaxLength(500);
+
+                entity.Property(e => e.Name).HasMaxLength(60);
+
+                entity.Property(e => e.OtherImage).HasMaxLength(500);
             });
 
             modelBuilder.Entity<Rate>(entity =>
@@ -263,13 +439,13 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.Rates)
                     .HasForeignKey(d => d.Customer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Rate__Customer__3D5E1FD2");
+                    .HasConstraintName("FK__Rate__Customer__4CA06362");
 
                 entity.HasOne(d => d.Film)
                     .WithMany(p => p.Rates)
                     .HasForeignKey(d => d.FilmId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Rate__FilmID__3C69FB99");
+                    .HasConstraintName("FK__Rate__FilmID__4BAC3F29");
             });
 
             modelBuilder.Entity<ShowTime>(entity =>
@@ -288,19 +464,19 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.ShowTimes)
                     .HasForeignKey(d => d.CinemaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShowTimes__Cinem__398D8EEE");
+                    .HasConstraintName("FK__ShowTimes__Cinem__48CFD27E");
 
                 entity.HasOne(d => d.Film)
                     .WithMany(p => p.ShowTimes)
                     .HasForeignKey(d => d.FilmId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShowTimes__FilmI__37A5467C");
+                    .HasConstraintName("FK__ShowTimes__FilmI__46E78A0C");
 
                 entity.HasOne(d => d.ProjectionRoom)
                     .WithMany(p => p.ShowTimes)
                     .HasForeignKey(d => d.ProjectionRoomId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__ShowTimes__Proje__38996AB5");
+                    .HasConstraintName("FK__ShowTimes__Proje__47DBAE45");
             });
 
             modelBuilder.Entity<Ticket>(entity =>
@@ -323,19 +499,19 @@ namespace CinemaBlazor.Shared.Models
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.Customer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ticket__Customer__46E78A0C");
+                    .HasConstraintName("FK__Ticket__Customer__5DCAEF64");
 
                 entity.HasOne(d => d.EmployeeNavigation)
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.Employee)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ticket__Employee__47DBAE45");
+                    .HasConstraintName("FK__Ticket__Employee__5EBF139D");
 
                 entity.HasOne(d => d.ShowTimesNavigation)
                     .WithMany(p => p.Tickets)
                     .HasForeignKey(d => d.ShowTimes)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ticket__ShowTime__45F365D3");
+                    .HasConstraintName("FK__Ticket__ShowTime__5CD6CB2B");
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -32,12 +32,62 @@ create table Customer
 	AccountID int not null foreign key references Account(ID),
 )
 
+create table Actor
+(
+	ID INT IDENTITY PRIMARY KEY,
+	Name nvarchar(60),
+	Description nvarchar(4000),
+	Birthday datetime,
+	Height float,
+	Nationality nvarchar(70),
+	Bio nvarchar(4000),
+	AvatarUrl nvarchar(500),
+)
+
+create table Director
+(
+	ID INT IDENTITY PRIMARY KEY,
+	Name nvarchar(60),
+	Description nvarchar(4000),
+	Birthday datetime,
+	Height float,
+	Nationality nvarchar(70),
+	Bio nvarchar(4000),
+	AvatarUrl nvarchar(500),
+)
+
+create table Blog
+(
+	ID INT IDENTITY PRIMARY KEY,
+	Name nvarchar(60),
+	Description nvarchar(4000),
+	Content1 nvarchar(4000),
+	Content2 nvarchar(4000),
+	Content3 nvarchar(4000),
+	ImageUrl nvarchar(500),
+	ImageUrl1 nvarchar(500),
+	ImageUrl2 nvarchar(500),
+	ImageUrl3 nvarchar(500)
+)
+
+create table Promotion
+(
+	ID INT IDENTITY PRIMARY KEY,
+	Name nvarchar(60),
+	Description nvarchar(4000),
+	Content nvarchar(4000),
+	ImageUrl nvarchar(500),
+	OtherImage nvarchar(500),
+)
+
+
 create table Cinema
 (
 	ID INT IDENTITY PRIMARY KEY,
 	Name nvarchar(60),
 	Location nvarchar(200),
 	ImageUrl nvarchar(500),
+	ImageUrl2 nvarchar(500),
 )
 
 create table FilmGenre
@@ -59,6 +109,20 @@ create table Film
 	Nation nvarchar(500),
 	Directior nvarchar(50),
 	Cast nvarchar(200),
+)
+
+create table FilmDirector
+(
+	ID INT IDENTITY PRIMARY KEY,
+	FilmID int not null foreign key references Film(ID),
+	DirectorID int not null foreign key references Director(ID)
+)
+
+create table FilmActor
+(
+	ID INT IDENTITY PRIMARY KEY,
+	FilmID int not null foreign key references Film(ID),
+	Actor int not null foreign key references Actor(ID)
 )
 
 create table ProjectionRoom
@@ -89,8 +153,22 @@ create table Rate
 create table Comment
 (
 	ID INT IDENTITY PRIMARY KEY,
-	Content nvarchar(500) not null,
+	Content nvarchar(4000) not null,
 	FilmID int not null foreign key references Film(ID),
+	Customer int not null foreign key references Customer(ID),
+)
+
+create table LikeActor
+(
+	ID INT IDENTITY PRIMARY KEY,
+	ActorID int not null foreign key references Actor(ID),
+	Customer int not null foreign key references Customer(ID),
+)
+
+create table LikeDirector
+(
+	ID INT IDENTITY PRIMARY KEY,
+	DirectorID int not null foreign key references Director(ID),
 	Customer int not null foreign key references Customer(ID),
 )
 
