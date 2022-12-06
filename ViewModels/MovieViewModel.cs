@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
+using CinemaBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieTickets.ViewModels
+namespace CinemaBlazor.ViewModels
 {
     public class MovieViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace MovieTickets.Models
+namespace CinemaBlazor.Models
 {
     public class MovieContext:IdentityDbContext
     {

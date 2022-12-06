@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
-using MovieTickets.Services;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     public class UpdateProfileController : Controller
     {

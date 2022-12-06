@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MovieTickets.Models;
+using CinemaBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Services
+namespace CinemaBlazor.Services
 {
     public interface IActorRepository
     {

@@ -1,7 +1,7 @@
-﻿using MovieTickets.Models;
-using MovieTickets.ViewModels;
+﻿using CinemaBlazor.Models;
+using CinemaBlazor.ViewModels;
 
-namespace MovieTickets.Services
+namespace CinemaBlazor.Services
 {
 
     public class MovieOrderRepository : IMovieOrderRepository

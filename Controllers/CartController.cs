@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
-using MovieTickets.Services;
-using MovieTickets.ViewModels;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
+using CinemaBlazor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     [Authorize]
     public class CartController : Controller

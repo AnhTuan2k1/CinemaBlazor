@@ -9810,11 +9810,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\MovieTickets.csproj",
-      "projectName": "MovieTickets",
-      "projectPath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\MovieTickets.csproj",
+      "projectUniqueName": "D:\\subjects\\Công Nghệ Web\\New folder\\MovieTickets\\MovieTickets\\CinemaBlazor.csproj",
+      "projectName": "CinemaBlazor",
+      "projectPath": "D:\\subjects\\Công Nghệ Web\\New folder\\MovieTickets\\MovieTickets\\CinemaBlazor.csproj",
       "packagesPath": "C:\\Users\\anhtu_y6lc91\\.nuget\\packages\\",
-      "outputPath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\obj\\",
+      "outputPath": "D:\\subjects\\Công Nghệ Web\\New folder\\MovieTickets\\MovieTickets\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anhtu_y6lc91\\AppData\\Roaming\\NuGet\\NuGet.Config",

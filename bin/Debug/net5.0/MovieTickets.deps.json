@@ -31,7 +31,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "MovieTickets/1.0.0": {
+      "CinemaBlazor/1.0.0": {
         "dependencies": {
           "IdentityModel": "6.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.13",
@@ -322,10 +322,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "MovieTickets.dll": {}
+          "CinemaBlazor.dll": {}
         },
         "compile": {
-          "MovieTickets.dll": {}
+          "CinemaBlazor.dll": {}
         }
       },
       "Castle.Core/4.4.1": {
@@ -3994,7 +3994,7 @@
     }
   },
   "libraries": {
-    "MovieTickets/1.0.0": {
+    "CinemaBlazor/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

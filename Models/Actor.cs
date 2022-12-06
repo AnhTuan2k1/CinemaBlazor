@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MovieTickets.Models
+namespace CinemaBlazor.Models
 {
     public class Actor
     {

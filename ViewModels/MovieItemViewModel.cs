@@ -1,8 +1,8 @@
-﻿using MovieTickets.Models;
+﻿using CinemaBlazor.Models;
 using System;
 using System.Collections.Generic;
 
-namespace MovieTickets.ViewModels
+namespace CinemaBlazor.ViewModels
 {
     public class MovieItemViewModel
     {

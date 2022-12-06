@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
-using MovieTickets.ViewModels;
+using CinemaBlazor.Models;
+using CinemaBlazor.ViewModels;
 using System;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     public class AccountController : Controller
     {

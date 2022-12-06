@@ -1,7 +1,7 @@
-﻿using MovieTickets.Models;
+﻿using CinemaBlazor.Models;
 using System.Collections.Generic;
 
-namespace MovieTickets.Services
+namespace CinemaBlazor.Services
 {
     public interface IMovieInCinemaRepository
     {

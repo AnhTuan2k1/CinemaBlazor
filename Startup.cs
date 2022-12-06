@@ -5,17 +5,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MovieTickets.Models;
+using CinemaBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MovieTickets.Services;
+using CinemaBlazor.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using payment.PaymentData;
 using Stripe;
 
-namespace MovieTickets
+namespace CinemaBlazor
 {
     public class Startup
     {
