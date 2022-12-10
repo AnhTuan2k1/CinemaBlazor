@@ -2,13 +2,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MovieTickets.Models;
-using MovieTickets.Services;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     public class ActorController : Controller
     {

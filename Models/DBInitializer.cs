@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Models
+namespace CinemaBlazor.Models
 {
     public class UserRoles
     {

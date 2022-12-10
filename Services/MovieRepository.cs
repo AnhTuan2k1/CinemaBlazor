@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MovieTickets.Models;
-using MovieTickets.Services;
-using MovieTickets.ViewModels;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
+using CinemaBlazor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;

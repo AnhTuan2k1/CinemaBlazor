@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L17cCCcC+6Iut7TNQHyaXwYzN1Rj1Sx+5vwAzawR6xg0eIEZrblyYYe43+ZDFfjYJOIYbq8HfcgishYzXsEkmA==",
+  "dgSpecHash": "qicNH1x6hfp5pLKIQawjB+LTF8IlELDxbWfe3ejkol73bp8uO06RSqPrNw5DgcKjaz5fWr7wYCA9kyE8NzNO7A==",
   "success": true,
-  "projectFilePath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\MovieTickets.csproj",
+  "projectFilePath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\CinemaBlazor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhtu_y6lc91\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\anhtu_y6lc91\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

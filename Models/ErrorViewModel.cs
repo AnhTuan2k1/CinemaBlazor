@@ -1,6 +1,6 @@
 using System;
 
-namespace MovieTickets.Models
+namespace CinemaBlazor.Models
 {
     public class ErrorViewModel
     {

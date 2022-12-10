@@ -1,9 +1,9 @@
-﻿using MovieTickets.Models;
-using MovieTickets.ViewModels;
+﻿using CinemaBlazor.Models;
+using CinemaBlazor.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MovieTickets.Services
+namespace CinemaBlazor.Services
 {
     public class CartRepository : ICartRepository
     {

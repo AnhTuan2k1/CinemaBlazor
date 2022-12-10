@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MovieTickets.Models;
-using MovieTickets.ViewModels;
+using CinemaBlazor.Models;
+using CinemaBlazor.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MovieTickets.Services
+namespace CinemaBlazor.Services
 {
     public interface IMovieRepository
     {

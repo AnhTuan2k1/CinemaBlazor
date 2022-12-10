@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
-using MovieTickets.Services;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
 using Stripe;
 using System;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     [Authorize]
     public class PaymentController : Controller

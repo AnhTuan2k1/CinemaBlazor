@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieTickets.ViewModels
+namespace CinemaBlazor.ViewModels
 {
     public class LoginViewModel
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MovieTickets.Models
+namespace CinemaBlazor.Models
 {
     public class Cart
     {

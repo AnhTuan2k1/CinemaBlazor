@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MovieTickets.Migrations
+namespace CinemaBlazor.Migrations
 {
     public partial class init : Migration
     {

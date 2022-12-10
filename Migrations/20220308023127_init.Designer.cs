@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MovieTickets.Models;
+using CinemaBlazor.Models;
 
-namespace MovieTickets.Migrations
+namespace CinemaBlazor.Migrations
 {
     [DbContext(typeof(MovieContext))]
     [Migration("20220308023127_init")]
@@ -223,7 +223,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Actor", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Actor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -244,7 +244,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Cart", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -266,7 +266,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Cart");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Category", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -287,7 +287,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Cinema", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Cinema", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -311,7 +311,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Cinemas");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Movie", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Movie", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -355,7 +355,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieActor", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieActor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -377,7 +377,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("MovieActors");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieInCinema", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieInCinema", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -402,7 +402,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("MovieInCinemas");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieOrder", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieOrder", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -427,7 +427,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("MovieOrders");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Producer", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Producer", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -448,7 +448,7 @@ namespace MovieTickets.Migrations
                     b.ToTable("Producers");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.User", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -515,15 +515,15 @@ namespace MovieTickets.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Cart", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Cart", b =>
                 {
-                    b.HasOne("MovieTickets.Models.Movie", "Movie")
+                    b.HasOne("CinemaBlazor.Models.Movie", "Movie")
                         .WithMany("Carts")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieTickets.Models.User", "User")
+                    b.HasOne("CinemaBlazor.Models.User", "User")
                         .WithMany("Carts")
                         .HasForeignKey("UserId");
 
@@ -532,15 +532,15 @@ namespace MovieTickets.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Movie", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Movie", b =>
                 {
-                    b.HasOne("MovieTickets.Models.Category", "Category")
+                    b.HasOne("CinemaBlazor.Models.Category", "Category")
                         .WithMany("Movies")
                         .HasForeignKey("Cat_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieTickets.Models.Producer", "Producer")
+                    b.HasOne("CinemaBlazor.Models.Producer", "Producer")
                         .WithMany("Movies")
                         .HasForeignKey("Producer_Id")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -551,15 +551,15 @@ namespace MovieTickets.Migrations
                     b.Navigation("Producer");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieActor", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieActor", b =>
                 {
-                    b.HasOne("MovieTickets.Models.Actor", "Actor")
+                    b.HasOne("CinemaBlazor.Models.Actor", "Actor")
                         .WithMany("MovieActors")
                         .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieTickets.Models.Movie", "Movie")
+                    b.HasOne("CinemaBlazor.Models.Movie", "Movie")
                         .WithMany("MovieActors")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -570,15 +570,15 @@ namespace MovieTickets.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieInCinema", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieInCinema", b =>
                 {
-                    b.HasOne("MovieTickets.Models.Cinema", "Cinema")
+                    b.HasOne("CinemaBlazor.Models.Cinema", "Cinema")
                         .WithMany("MoviesInCinema")
                         .HasForeignKey("CinemaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieTickets.Models.Movie", "Movie")
+                    b.HasOne("CinemaBlazor.Models.Movie", "Movie")
                         .WithMany("MoviesInCinema")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -589,15 +589,15 @@ namespace MovieTickets.Migrations
                     b.Navigation("Movie");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.MovieOrder", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.MovieOrder", b =>
                 {
-                    b.HasOne("MovieTickets.Models.Movie", "Movie")
+                    b.HasOne("CinemaBlazor.Models.Movie", "Movie")
                         .WithMany("MovieOrders")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MovieTickets.Models.User", "User")
+                    b.HasOne("CinemaBlazor.Models.User", "User")
                         .WithMany("MovieOrders")
                         .HasForeignKey("UserId");
 
@@ -606,22 +606,22 @@ namespace MovieTickets.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Actor", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Actor", b =>
                 {
                     b.Navigation("MovieActors");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Category", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Category", b =>
                 {
                     b.Navigation("Movies");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Cinema", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Cinema", b =>
                 {
                     b.Navigation("MoviesInCinema");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Movie", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Movie", b =>
                 {
                     b.Navigation("Carts");
 
@@ -632,12 +632,12 @@ namespace MovieTickets.Migrations
                     b.Navigation("MoviesInCinema");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.Producer", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.Producer", b =>
                 {
                     b.Navigation("Movies");
                 });
 
-            modelBuilder.Entity("MovieTickets.Models.User", b =>
+            modelBuilder.Entity("CinemaBlazor.Models.User", b =>
                 {
                     b.Navigation("Carts");
 

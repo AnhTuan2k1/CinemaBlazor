@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     public class ValidationController : Controller
     {

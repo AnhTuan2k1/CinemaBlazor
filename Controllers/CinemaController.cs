@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MovieTickets.Models;
-using MovieTickets.Services;
+using CinemaBlazor.Models;
+using CinemaBlazor.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
-using MovieTickets.ViewModels;
+using CinemaBlazor.ViewModels;
 
-namespace MovieTickets.Controllers
+namespace CinemaBlazor.Controllers
 {
     public class CinemaController : Controller
     {
