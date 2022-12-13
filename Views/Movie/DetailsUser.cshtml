@@ -34,15 +34,22 @@ Layout="~/Views/Shared/_UserLayout.cshtml";
 							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
 							<div><a href="@Model.Movie.Trailer" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
 						</div>
-						
-						@if(Model.Movie.EndDate>DateTime.Now){
+
+						<div class="btn-transform transform-vertical">
+
+
+							<div><a asp-action="Index" asp-controller="Payment" asp-route-id="@Model.Movie.Id" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+							<div><a asp-action="Index" asp-controller="Payment" asp-route-id="@Model.Movie.Id" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a></div>
+
+						</div>
+@*						@if(Model.Movie.EndDate>DateTime.Now){
 						<div class="btn-transform transform-vertical">
 							
 								
 							<div><a  asp-action="Index" asp-controller="Payment" asp-route-id="@Model.Movie.Id" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
 							<div><a asp-action="Index" asp-controller="Payment" asp-route-id="@Model.Movie.Id" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a></div>
 						
-						</div>
+						</div>*@
 						}
 						
 					</div>
@@ -81,15 +88,24 @@ Layout="~/Views/Shared/_UserLayout.cshtml";
 						</div>
 						<div class="rate-star">
 							<p>Rate This Movie:  </p>
+
+							@for(int i = 0; i<@Model.Movie.Rate ; i++)
+							{
+								<i class="ion-ios-star"></i>
+							}
+							@for(int i = 0; i<(10 - @Model.Movie.Rate) ; i++)
+							{
+								<i class="ion-ios-star-outline"></i>
+							}
+@*							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
 							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star"></i>
-							<i class="ion-ios-star-outline"></i>
+							<i class="ion-ios-star"></i>*@
+							
 						</div>
 					</div>
 					<div class="movie-tabs">
@@ -160,7 +176,7 @@ Layout="~/Views/Shared/_UserLayout.cshtml";
 													@{if(item.Actor.Image!=null){
 														var base1 = Convert.ToBase64String(@item.Actor.Image);
 														 string imgsrc1 = string.Format("data:images/*;base64,{0}", base1);
-													<img src="@imgsrc1" style="width:80px; height:80px; border-radius:50%; object-fit:cover"/>
+															<img src="@imgsrc1" style="width:80px; height:80px; border-radius:50%; object-fit:cover"/>
 													}}
 													<a asp-action="Details" asp-controller="Actor" asp-route-id="@item.Actor.Id">@item.Actor.Name</a>
 												</div>
