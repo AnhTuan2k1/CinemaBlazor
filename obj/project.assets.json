@@ -9805,19 +9805,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anhtu_y6lc91\\.nuget\\packages\\": {}
+    "C:\\Users\\Xuan Thai\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\CinemaBlazor.csproj",
+      "projectUniqueName": "C:\\Users\\Xuan Thai\\Downloads\\Github Repo\\CinemaBlazor\\CinemaBlazor.csproj",
       "projectName": "CinemaBlazor",
-      "projectPath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\CinemaBlazor.csproj",
-      "packagesPath": "C:\\Users\\anhtu_y6lc91\\.nuget\\packages\\",
-      "outputPath": "D:\\subjects\\Công Nghệ Web\\project\\CinemaBlazor\\obj\\",
+      "projectPath": "C:\\Users\\Xuan Thai\\Downloads\\Github Repo\\CinemaBlazor\\CinemaBlazor.csproj",
+      "packagesPath": "C:\\Users\\Xuan Thai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Xuan Thai\\Downloads\\Github Repo\\CinemaBlazor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\anhtu_y6lc91\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Xuan Thai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9907,7 +9907,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

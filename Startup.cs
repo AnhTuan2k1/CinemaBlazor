@@ -33,7 +33,7 @@ namespace CinemaBlazor
             //payment
             services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
             services.AddDbContext<MovieContext>(options =>
-                            options.UseSqlServer(Configuration.GetConnectionString("ConnectDb")));
+                            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
 
             //Added Services_____________________________
