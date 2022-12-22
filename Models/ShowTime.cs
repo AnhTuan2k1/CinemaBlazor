@@ -14,9 +14,9 @@ namespace CinemaBlazor.Models
         public DateTime StartTime { get; set; }
         public int FilmId { get; set; }
         public int ProjectionRoomId { get; set; }
-        public int CinemaId { get; set; }
+        //public int CinemaId { get; set; }
 
-        public virtual Cinema Cinema { get; set; } = null!;
+        //public virtual Cinema Cinema { get; set; } = null!;
         public virtual Movie Film { get; set; } = null!;
         public virtual ProjectionRoom ProjectionRoom { get; set; } = null!;
         public virtual ICollection<Ticket> Tickets { get; set; }
