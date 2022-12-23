@@ -27,7 +27,7 @@ namespace CinemaBlazor.Services
 
         public List<Cart> GetData(Cart carts)
         {
-            var cart = db.Cart.Where(w => w.UserId == carts.UserId).Where(w => w.MovieId == carts.MovieId).ToList();
+            var cart = db.Cart.Where(w => w.UserId == carts.UserId).ToList();
             return cart;
         }
 

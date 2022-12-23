@@ -179,11 +179,14 @@
 						}
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
+                        
 						@if(User.Identity.IsAuthenticated && user != null){
 							
 							<li><a asp-action="UpdateUserForm" asp-controller="UpdateProfile" asp-route-id="@user.Id">
 								
+								
 									@if(@user.Image==null){
+
 									
 								<img src="~/images/placeholder.jpg" alt=""
 								style="width:50px; height:50px; border-radius: 50%; object-fit:cover"/>
@@ -198,6 +201,8 @@
 									}
 									
 								</a></li>
+								<li> <a asp-controller="Cart" asp-action=""> <img src="~/images/shopping-cart (1).png" alt=""
+								style="width:50px; height:50px; border-radius: 50%; object-fit:cover" /> </a></li>
 							<li class="btn signupLink"><a asp-controller="Account" asp-action="LogOut">LOG Out</a></li>
 						} else
 						{
@@ -232,9 +237,9 @@
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
 				 <a asp-action="index" asp-controller="home"><img class="logo" src="/images/logo1.png" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+				 <p>UIT<br>
+				Tp. Thủ Đức, Tp. HCM</p>
+				<p>Call us: <a href="#">(+84) 123 456 789</a></p>
 			</div>
 			<div class="flex-child-ft item2">
 				<h4>Resources</h4>
