@@ -602,8 +602,7 @@ namespace CinemaBlazor.Migrations
                 name: "ShowTimes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FilmId = table.Column<int>(type: "int", nullable: false),
                     ProjectionRoomId = table.Column<int>(type: "int", nullable: false),
@@ -640,7 +639,7 @@ namespace CinemaBlazor.Migrations
                     Customer = table.Column<int>(type: "int", nullable: false),
                     Employee = table.Column<int>(type: "int", nullable: false),
                     EmployeeNavigationId = table.Column<int>(type: "int", nullable: true),
-                    ShowTimesNavigationId = table.Column<int>(type: "int", nullable: true)
+                    ShowTimesNavigationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {

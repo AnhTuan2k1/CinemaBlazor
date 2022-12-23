@@ -553,10 +553,8 @@ namespace CinemaBlazor.Migrations
 
             modelBuilder.Entity("CinemaBlazor.Models.ShowTime", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("FilmId")
                         .HasColumnType("int");
@@ -607,8 +605,8 @@ namespace CinemaBlazor.Migrations
                     b.Property<int>("ShowTimes")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShowTimesNavigationId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ShowTimesNavigationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TicketType")
                         .HasColumnType("nvarchar(max)");

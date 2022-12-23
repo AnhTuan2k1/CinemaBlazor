@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CinemaBlazor.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20221220044742_Initial")]
+    [Migration("20221223034621_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -555,10 +555,8 @@ namespace CinemaBlazor.Migrations
 
             modelBuilder.Entity("CinemaBlazor.Models.ShowTime", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("FilmId")
                         .HasColumnType("int");
@@ -609,8 +607,8 @@ namespace CinemaBlazor.Migrations
                     b.Property<int>("ShowTimes")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ShowTimesNavigationId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ShowTimesNavigationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TicketType")
                         .HasColumnType("nvarchar(max)");

@@ -23,4 +23,8 @@
     <PackageReference Include="Stripe.net" Version="39.95.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ShowTime\" />
+  </ItemGroup>
+
 </Project>

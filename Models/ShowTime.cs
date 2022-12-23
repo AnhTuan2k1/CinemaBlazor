@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace CinemaBlazor.Models
 {
@@ -10,7 +12,9 @@ namespace CinemaBlazor.Models
             Tickets = new HashSet<Ticket>();
         }
 
-        public int Id { get; set; }
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Required]
+        public Guid Id { get; set; }
         public DateTime StartTime { get; set; }
         public int FilmId { get; set; }
         public int ProjectionRoomId { get; set; }

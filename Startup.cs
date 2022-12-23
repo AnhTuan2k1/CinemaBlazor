@@ -47,6 +47,7 @@ namespace CinemaBlazor
             services.AddScoped<ICartRepository, CartRepository>();
             services.AddScoped<IMovieOrderRepository, MovieOrderRepository>();
             services.AddScoped<IUpdateProfileRepository, UpdateProfileRepository>();
+            services.AddScoped<IShowTimeRepository, ShowTimeRepository>();
 
             //___________________________________________
             //Authentication and Authorization
