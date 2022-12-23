@@ -1,83 +1,114 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CinemaBlazor.Models;
+using CinemaBlazor.Services;
+using CinemaBlazor.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Threading.Tasks;
 
 namespace CinemaBlazor.Controllers
 {
     public class ShowTimeController : Controller
     {
-        // GET: ShowTimeController
-        public ActionResult Index()
+        IShowTimeRepository showtimeRepo;
+        MovieContext db;
+
+        public ShowTimeController(IShowTimeRepository _showtimeRepo, MovieContext _db)
         {
-            return View();
+            showtimeRepo = _showtimeRepo;
+            db = _db;
+        }
+        static Guid iid;
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetShowTimesAdmin()
+        {
+            List<ShowTime> showtimes = showtimeRepo.GetAll();
+            return View("AdminShowTimes", showtimes);
         }
 
-        // GET: ShowTimeController/Details/5
-        public ActionResult Details(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult GetShowTimesDetailsAdmin(Guid id)
         {
-            return View();
+            ShowTimeViewModel ShowTimemodel = showtimeRepo.GetShowTimeByIdAdmin(id);
+
+            ViewBag.Cinemas = new SelectList(db.Cinemas.ToList(), "Id", "Name");
+            ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+            ViewBag.Actors = new SelectList(db.Actors.ToList(), "Id", "Name");
+            ViewBag.Producers = new SelectList(db.Producers.ToList(), "Id", "Name");
+
+            return View("ShowtimeDetailsAdmin", ShowTimemodel);
         }
 
-        // GET: ShowTimeController/Create
-        public ActionResult Create()
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
         {
-            return View();
+            ViewBag.Cinemas = new SelectList(db.Cinemas.ToList(), "Id", "Name");
+            ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+            ViewBag.Actors = new SelectList(db.Actors.ToList(), "Id", "Name");
+            ViewBag.Producers = new SelectList(db.Producers.ToList(), "Id", "Name");
+
+            return View(new MovieViewModel());
+
         }
 
-        // POST: ShowTimeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(ShowTimeViewModel showtimevm)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                showtimeRepo.Insert(showtimevm);
+                return RedirectToAction("GetShowTimesAdmin", "Movie");
             }
-            catch
-            {
-                return View();
-            }
+
+
+            ViewBag.Cinemas = new SelectList(db.Cinemas.ToList(), "Id", "Name");
+            ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+            ViewBag.Actors = new SelectList(db.Actors.ToList(), "Id", "Name");
+            ViewBag.Producers = new SelectList(db.Producers.ToList(), "Id", "Name");
+            return View(showtimevm);
+
         }
 
-        // GET: ShowTimeController/Edit/5
-        public ActionResult Edit(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditShowTimeFromAdmin(Guid id)
+
         {
-            return View();
+            iid = id;
+            ShowTimeViewModel ShowTimemodel = showtimeRepo.GetShowTimeByIdAdmin(id);
+
+            ViewBag.Cinemas = new SelectList(db.Cinemas.ToList(), "Id", "Name");
+            ViewBag.Categories = new SelectList(db.Categories.ToList(), "Id", "Name");
+            ViewBag.Actors = new SelectList(db.Actors.ToList(), "Id", "Name");
+            ViewBag.Producers = new SelectList(db.Producers.ToList(), "Id", "Name");
+
+
+
+            return View("Edit", ShowTimemodel);
         }
 
-        // POST: ShowTimeController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(ShowTimeViewModel editMovie)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            Task<int> numOfRowsUpdated = showtimeRepo.update(editMovie, iid);
+            return RedirectToAction("Getshowtimesadmin");
         }
 
-        // GET: ShowTimeController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            showtimeRepo.delete(id);
+            return RedirectToAction("Getshowtimesadmin");
+
         }
 
-        // POST: ShowTimeController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

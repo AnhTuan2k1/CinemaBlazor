@@ -1,0 +1,67 @@
+﻿@using CinemaBlazor.ViewModels
+
+@*@model ShowTimeViewModel*@
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+    <div class="row text center">
+        <p>
+            <h4>Create a new showtime</h4>
+        </p>
+
+        <div class="row">
+            <div class="col-md-8 offset-2">
+                <form asp-action="Create" enctype ="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+@*                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="StartTime" class="control-label"></label>
+                                <input asp-for="StartTime" type="date" class="form-control" />
+                                <span asp-validation-for="StartTime" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Film.Name" class="control-label"></label>
+                                <input asp-for="Film.Name" type="number" class="form-control" />
+                                <span asp-validation-for="Film.Name" class="text-danger"></span>
+                            </div>
+                            
+                        </div>*@
+                   @* <div class="col-md-4 offset-4 text-center">
+                        <img width="100%" id="ImageUrlPreview" />
+                    </div>*@
+
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-outline-success float-right" />
+                        <a class="btn btn-outline-secondary" asp-action="Getmoviesadmin">Show all</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function addShowTime() {
+        //var showtimes = $("#selected_shotimes").val();
+        //console.log(showtimes)
+        //$.ajax({
+        //    url: '/ShowTime/AddShowTime',
+        //    method: 'POST',
+        //    data: { showtimes: showtimes },
+        //    success: function (result) {
+        //        $("#showtimes").append(result);
+        //    },
+        //    error: function (er) {
+        //        alert(er.statusText)
+        //    }
+        //})
+    }
+</script>
