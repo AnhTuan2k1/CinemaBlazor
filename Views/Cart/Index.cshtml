@@ -32,8 +32,8 @@
 	
 					<img src="@imgsrc" alt="">
 					}
-					<div class="mv-item-infor">
-						<h6><a href="moviesingle.html">@item.Movie.Name</a></h6>
+					<div class="mv-item-infor"  >
+						<h6><a asp-action="Details" asp-controller="Movie" asp-route-id="@item.Movie.Id" >@item.Movie.Name</a></h6>
 						<p class="rate"><i class="fa-solid fa-circle-dollar"></i><span>@item.Movie.Price</span><span>,000 VND</span></p>
 						<p class="describe">As Steve Rogers struggles to embrace his role in the modern world, he teams up with a fellow Avenger and S.H.I.E.L.D agent, Black Widow, to battle a new threat...</p>
 						<p class="run-time">   <span> </span> <span></span></p>
