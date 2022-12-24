@@ -24,7 +24,7 @@ namespace CinemaBlazor.Controllers
            
             cart.UserId = HttpContext.Session.GetString("id");
             
-           List<Cart> carts= cartService.GetData(cart);
+           List<Cart> carts= cartService.GetData2(cart);
             return View(carts);
         }
         
